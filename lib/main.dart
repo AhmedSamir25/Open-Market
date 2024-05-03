@@ -16,8 +16,8 @@ class OpenMarket extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
       useMaterial3: true,
-      //  brightness: Brightness.dark,
-       colorScheme:  const ColorScheme.dark()
+      brightness: Brightness.dark,
+       
       ),
       routerConfig: AppRouter.router,
     );
