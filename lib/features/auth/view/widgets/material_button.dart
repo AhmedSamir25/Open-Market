@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:open_market/core/theme/text_style.dart';
 
 class CustomMaterialButton extends StatelessWidget {
-  const CustomMaterialButton({super.key});
-
+  const CustomMaterialButton(
+      {super.key, required this.textButton, required this.iconData});
+  final String textButton;
+  final IconData iconData;
   @override
   Widget build(BuildContext context) {
     double widthMedia = MediaQuery.of(context).size.width;
@@ -17,16 +21,16 @@ class CustomMaterialButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Row(
             children: [
-              const Icon(
-                Icons.email,
+              Icon(
+                iconData,
                 size: 35,
               ),
               SizedBox(
-                width: widthMedia * 0.05,
+                width: widthMedia * 0.15,
               ),
-              const Text(
-                'Login In',
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400),
+              Text(
+                textButton,
+                style: StyleText.textStyle22,
               ),
             ],
           ),
