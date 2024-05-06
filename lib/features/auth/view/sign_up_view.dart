@@ -29,7 +29,7 @@ class SignUpView extends StatelessWidget {
             ),
             const CustomMaterialButton(
               iconData: Icons.email,
-              textButton: 'Login',
+              textButton: 'Sign up',
             ),
             ButtonLoginOrSignUp(
                 textButton: 'Login',
