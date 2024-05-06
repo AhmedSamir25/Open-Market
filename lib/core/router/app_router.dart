@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:open_market/features/auth/view/auth_view.dart';
+import 'package:open_market/features/auth/view/login_in.dart';
 
 abstract class AppRouter {
   static const authView = '/';

@@ -17,7 +17,6 @@ class OpenMarket extends StatelessWidget {
       theme: ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-       
       ),
       routerConfig: AppRouter.router,
     );

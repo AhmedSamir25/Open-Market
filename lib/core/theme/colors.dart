@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
- class ColorManager {
-  final blackColor = Colors.black;
+ abstract class ColorManager {
+  static const blackColor = Colors.black;
+ static const whiteColor = Colors.white;
+ static const redColor = Colors.red;
 }
    
