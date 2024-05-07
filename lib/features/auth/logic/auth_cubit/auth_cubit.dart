@@ -37,14 +37,6 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void signInWithGoogle() async {
-    try {
-      await _authRepository.signInWithGoogle();
-      emit(UserSignSuccessState());
-    } catch (e) {
-      emit(FeiledCreatedUserState(massage: e.toString()));
-    }
-  }
   void signOut() async{
     await _authRepository.signOut();
   }

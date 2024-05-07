@@ -19,16 +19,9 @@ class ForgetPasswordView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
-              SizedBox(
-                height: heightMedia * 0.09,
-              ),
-              Text(
-                'Enter your email',
-                style: StyleText.textStyle22,
-              ),
-              SizedBox(
-                height: heightMedia * 0.02,
-              ),
+              SizedBox(height: heightMedia * 0.09,),
+              Text('Enter your email',style: StyleText.textStyle22,),
+              SizedBox(height: heightMedia * 0.02,),
               CustomTextField(
                   labelText: 'Email',
                   keyboardType: TextInputType.emailAddress,
@@ -36,9 +29,7 @@ class ForgetPasswordView extends StatelessWidget {
                   controller: context.read<AuthCubit>().emailConteoller,
                   prefixIcon: const Icon(Icons.email),
                   obscureText: false),
-                SizedBox(
-                height: heightMedia * 0.04,
-              ),
+                SizedBox(height: heightMedia * 0.04,),
                  CustomMaterialButton(
                   iconData: Icons.email,
                   textButton: 'Send link',
