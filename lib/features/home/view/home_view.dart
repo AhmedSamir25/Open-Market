@@ -7,16 +7,21 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    double heightMedia = MediaQuery.of(context).size.height;
+    return Scaffold(
       appBar: AppBar(
-        title: Text('Open Market',style: StyleText.textStyleUbuntu18),
+        title: Text('Open Market', style: StyleText.textStyleUbuntu18),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 18.0),
+          padding: const EdgeInsets.symmetric(horizontal: 18.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SearchTextFieldBar(),
+              const SearchTextFieldBar(),
+              SizedBox(height: heightMedia * 0.02,),
+              Text('Categories',style: StyleText.textStyle17,),
+              
             ],
           ),
         ),

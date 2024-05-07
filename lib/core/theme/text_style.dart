@@ -16,7 +16,10 @@ abstract class StyleText {
      fontWeight: FontWeight.bold,
       fontFamily: "Ubuntu Sans Mono",
      );
-  
+  static TextStyle textStyle17 = const TextStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle textStyleWhiteUbuntu15 = const TextStyle(
     fontSize: 15,
     fontFamily: "Ubuntu Sans Mono",
