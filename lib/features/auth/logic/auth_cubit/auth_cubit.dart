@@ -9,7 +9,11 @@ class AuthCubit extends Cubit<AuthState> {
   final AuthRepository _authRepository;
 
   AuthCubit(this._authRepository) : super(AuthInitial());
-    final formKey = GlobalKey<FormState>();
+    final formKeyLogin = GlobalKey<FormState>();
+    final formKeySignup = GlobalKey<FormState>();
+    final emailConteoller = TextEditingController();
+    final passwordConteoller = TextEditingController();
+    final nameConteoller = TextEditingController();
 
   void registerWithEmail({
     required String email,

@@ -15,9 +15,6 @@ class SignupTextForm extends StatefulWidget {
 
 class _SignupTextFormState extends State<SignupTextForm> {
   late bool showPassword;
-  final emailConteoller = TextEditingController();
-  final passwordConteoller = TextEditingController();
-  final nameConteoller = TextEditingController();
   final RegExp regex = RegExp(r'^[a-zA-Z]+$');
   @override
   void initState() {
@@ -28,12 +25,14 @@ class _SignupTextFormState extends State<SignupTextForm> {
   @override
   Widget build(BuildContext context) {
     double heightMedia = MediaQuery.of(context).size.height;
+    final authCubit = BlocProvider.of<AuthCubit>(context);
     return Form(
-      key: context.read<AuthCubit>().formKey,
+      key: authCubit.formKeySignup,
       child: Column(
         children: [
           CustomTextField(
             labelText: 'Name',
+            keyboardType: TextInputType.name,
             validator: (name) {
               if (regex.hasMatch(name.toString()) == false ||
                   name.toString().isEmpty ||
@@ -43,7 +42,7 @@ class _SignupTextFormState extends State<SignupTextForm> {
                 return null;
               }
             },
-            controller: nameConteoller,
+            controller: authCubit.nameConteoller,
             prefixIcon: const Icon(Icons.person),
             obscureText: false,
           ),
@@ -52,8 +51,9 @@ class _SignupTextFormState extends State<SignupTextForm> {
           ),
           CustomTextField(
             labelText: 'Email',
+            keyboardType: TextInputType.emailAddress,
             validator: (email) => validateEmail(email!),
-            controller: emailConteoller,
+            controller: authCubit.emailConteoller,
             prefixIcon: const Icon(Icons.email),
             obscureText: false,
           ),
@@ -62,8 +62,9 @@ class _SignupTextFormState extends State<SignupTextForm> {
           ),
           CustomTextField(
             labelText: 'Password',
+            keyboardType: TextInputType.visiblePassword,
             validator: (password) => validatePassword(password!),
-            controller: passwordConteoller,
+            controller: authCubit.passwordConteoller,
             prefixIcon: const Icon(Icons.lock),
             suffixIcon: IconButton(
                 onPressed: () {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_market/core/function/email_valid.dart';
 import 'package:open_market/core/theme/text_style.dart';
+import 'package:open_market/features/auth/logic/auth_cubit/auth_cubit.dart';
 import 'package:open_market/features/auth/view/widgets/custom_text_field.dart';
 import 'package:open_market/features/auth/view/widgets/material_button.dart';
 
@@ -10,7 +12,6 @@ class ForgetPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double heightMedia = MediaQuery.of(context).size.height;
-   final emailConteoller = TextEditingController();
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -30,8 +31,9 @@ class ForgetPasswordView extends StatelessWidget {
               ),
               CustomTextField(
                   labelText: 'Email',
+                  keyboardType: TextInputType.emailAddress,
                   validator: (email) => validateEmail(email!) ,
-                  controller: emailConteoller,
+                  controller: context.read<AuthCubit>().emailConteoller,
                   prefixIcon: const Icon(Icons.email),
                   obscureText: false),
                 SizedBox(
@@ -40,7 +42,8 @@ class ForgetPasswordView extends StatelessWidget {
                  CustomMaterialButton(
                   iconData: Icons.email,
                   textButton: 'Send link',
-                  onPressed: (){},
+                  onPressed: (){
+                  },
                 )
             ],
           ),
