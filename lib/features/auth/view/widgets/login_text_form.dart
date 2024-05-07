@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:open_market/core/function/email_valid.dart';
 import 'package:open_market/core/function/password_valid.dart';
 import 'package:open_market/features/auth/logic/auth_cubit/auth_cubit.dart';
-import 'package:open_market/features/auth/view/widgets/custom_text_field.dart';
+import 'package:open_market/features/auth/view/widgets/custom_auth_text_field.dart';
 
 class LoginTextForm extends StatefulWidget {
   const LoginTextForm({super.key});
@@ -31,7 +31,7 @@ class _LoginTextFormState extends State<LoginTextForm> {
        key: authCubit.formKeyLogin,
       child: Column(
         children: [
-          CustomTextField(
+          CustomAuthTextField(
             labelText: 'Email',
             controller: authCubit.emailConteoller,
             keyboardType: TextInputType.emailAddress,
@@ -43,7 +43,7 @@ class _LoginTextFormState extends State<LoginTextForm> {
           SizedBox(
             height: heightMedia * 0.025,
           ),
-          CustomTextField(
+          CustomAuthTextField(
             labelText: 'Password',
             controller: authCubit.passwordConteoller,
             keyboardType: TextInputType.visiblePassword,

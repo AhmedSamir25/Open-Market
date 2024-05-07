@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_market/core/function/email_valid.dart';
 import 'package:open_market/core/theme/text_style.dart';
 import 'package:open_market/features/auth/logic/auth_cubit/auth_cubit.dart';
-import 'package:open_market/features/auth/view/widgets/custom_text_field.dart';
+import 'package:open_market/features/auth/view/widgets/custom_auth_text_field.dart';
 import 'package:open_market/features/auth/view/widgets/material_button.dart';
 
 class ForgetPasswordView extends StatelessWidget {
@@ -22,7 +22,7 @@ class ForgetPasswordView extends StatelessWidget {
               SizedBox(height: heightMedia * 0.09,),
               Text('Enter your email',style: StyleText.textStyle22,),
               SizedBox(height: heightMedia * 0.02,),
-              CustomTextField(
+              CustomAuthTextField(
                   labelText: 'Email',
                   keyboardType: TextInputType.emailAddress,
                   validator: (email) => validateEmail(email!) ,

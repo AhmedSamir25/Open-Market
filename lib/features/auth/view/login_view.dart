@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:open_market/core/router/app_router.dart';
-import 'package:open_market/core/widgets/custom_text_button.dart';
+import 'package:open_market/core/utils/widgets/custom_text_button.dart';
 import 'package:open_market/features/auth/logic/auth_cubit/auth_cubit.dart';
 import 'package:open_market/features/auth/view/widgets/button_login_or_sign_up.dart';
 import 'package:open_market/features/auth/view/widgets/head_body_text.dart';

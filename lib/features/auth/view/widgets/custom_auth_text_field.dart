@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:open_market/core/theme/colors.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField(
+class CustomAuthTextField extends StatelessWidget {
+  const CustomAuthTextField(
       {super.key,
       required this.labelText,
       required this.prefixIcon,
