@@ -7,16 +7,22 @@ class CustomTextField extends StatelessWidget {
       required this.labelText,
       required this.prefixIcon,
       this.suffixIcon,
-      required this.obscureText});
+      required this.obscureText, required this.controller, required this.validator});
+
   final String labelText;
   final Widget prefixIcon;
   final Widget? suffixIcon;
   final bool obscureText;
+  final TextEditingController controller;
+  final String? Function(String?) validator; 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       cursorColor: ColorManager.redColor,
+      controller: controller,
       obscureText: obscureText,
+      validator: validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,

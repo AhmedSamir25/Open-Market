@@ -3,14 +3,15 @@ import 'package:open_market/core/theme/text_style.dart';
 
 class CustomMaterialButton extends StatelessWidget {
   const CustomMaterialButton(
-      {super.key, required this.textButton, required this.iconData});
+      {super.key, required this.textButton, required this.iconData, required this.onPressed});
   final String textButton;
   final IconData iconData;
+  final Function() onPressed;
   @override
   Widget build(BuildContext context) {
     double widthMedia = MediaQuery.of(context).size.width;
     return MaterialButton(
-      onPressed: () {},
+      onPressed: onPressed,
       child: Container(
         width: widthMedia * 0.7,
         decoration: BoxDecoration(

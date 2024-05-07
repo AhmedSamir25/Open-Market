@@ -39,9 +39,10 @@ class LoginView extends StatelessWidget {
               SizedBox(
                 height: heightMedia * 0.045,
               ),
-              const CustomMaterialButton(
+               CustomMaterialButton(
                 iconData: Icons.email,
                 textButton: 'Login',
+                onPressed: (){},
               ),
               ButtonLoginOrSignUp(
                   textButton: 'Sign up',

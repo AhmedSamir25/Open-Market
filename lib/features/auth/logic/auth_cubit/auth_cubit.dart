@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_market/features/auth/data/repo/auth_repo.dart';
 
@@ -8,6 +9,7 @@ class AuthCubit extends Cubit<AuthState> {
   final AuthRepository _authRepository;
 
   AuthCubit(this._authRepository) : super(AuthInitial());
+    final formKey = GlobalKey<FormState>();
 
   void registerWithEmail({
     required String email,

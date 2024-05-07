@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:open_market/core/function/email_valid.dart';
+import 'package:open_market/core/function/password_valid.dart';
+import 'package:open_market/features/auth/logic/auth_cubit/auth_cubit.dart';
 import 'package:open_market/features/auth/view/widgets/custom_text_field.dart';
 
 class SignupTextForm extends StatefulWidget {
@@ -11,6 +15,10 @@ class SignupTextForm extends StatefulWidget {
 
 class _SignupTextFormState extends State<SignupTextForm> {
   late bool showPassword;
+  final emailConteoller = TextEditingController();
+  final passwordConteoller = TextEditingController();
+  final nameConteoller = TextEditingController();
+  final RegExp regex = RegExp(r'^[a-zA-Z]+$');
   @override
   void initState() {
     showPassword = true;
@@ -20,41 +28,58 @@ class _SignupTextFormState extends State<SignupTextForm> {
   @override
   Widget build(BuildContext context) {
     double heightMedia = MediaQuery.of(context).size.height;
-    return Column(
-      children: [
-        const CustomTextField(
-          labelText: 'Name',
-          prefixIcon: Icon(Icons.person),
-          obscureText: false,
-        ),
-        SizedBox(
-          height: heightMedia * 0.025,
-        ),
-        const CustomTextField(
-          labelText: 'Email',
-          prefixIcon: Icon(Icons.email),
-          obscureText: false,
-        ),
-        SizedBox(
-          height: heightMedia * 0.025,
-        ),
-        CustomTextField(
-          labelText: 'Password',
-          prefixIcon: const Icon(Icons.lock),
-          suffixIcon: IconButton(
-              onPressed: () {
-                setState(() {
-                  showPassword = !showPassword;
-                });
-              },
-              icon: showPassword
-                  ? const Icon(Icons.remove_red_eye)
-                  : const Icon(
-                      FontAwesomeIcons.eyeSlash,
-                    )),
-          obscureText: showPassword,
-        ),
-      ],
+    return Form(
+      key: context.read<AuthCubit>().formKey,
+      child: Column(
+        children: [
+          CustomTextField(
+            labelText: 'Name',
+            validator: (name) {
+              if (regex.hasMatch(name.toString()) == false ||
+                  name.toString().isEmpty ||
+                  name.toString().length < 3) {
+                return 'Enter a valid name';
+              } else {
+                return null;
+              }
+            },
+            controller: nameConteoller,
+            prefixIcon: const Icon(Icons.person),
+            obscureText: false,
+          ),
+          SizedBox(
+            height: heightMedia * 0.025,
+          ),
+          CustomTextField(
+            labelText: 'Email',
+            validator: (email) => validateEmail(email!),
+            controller: emailConteoller,
+            prefixIcon: const Icon(Icons.email),
+            obscureText: false,
+          ),
+          SizedBox(
+            height: heightMedia * 0.025,
+          ),
+          CustomTextField(
+            labelText: 'Password',
+            validator: (password) => validatePassword(password!),
+            controller: passwordConteoller,
+            prefixIcon: const Icon(Icons.lock),
+            suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    showPassword = !showPassword;
+                  });
+                },
+                icon: showPassword
+                    ? const Icon(Icons.remove_red_eye)
+                    : const Icon(
+                        FontAwesomeIcons.eyeSlash,
+                      )),
+            obscureText: showPassword,
+          ),
+        ],
+      ),
     );
   }
 }
