@@ -30,4 +30,8 @@ abstract class StyleText {
     fontSize: 15,
     color: ColorManager.whiteColor,
   );
+  static TextStyle textStyle13 = const TextStyle(
+    fontSize: 13,
+    color: ColorManager.whiteColor,
+  );
 }
