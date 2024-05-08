@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:open_market/core/theme/text_style.dart';
 import 'package:open_market/features/home/view/widgets/categories_item_list.dart';
+import 'package:open_market/features/home/view/widgets/home_flats_list_builder.dart';
 import 'package:open_market/features/home/view/widgets/search_bar.dart';
 import 'package:open_market/features/home/view/widgets/item_list_builder.dart';
 
@@ -26,6 +27,9 @@ class HomeView extends StatelessWidget {
               const CategoriesItemList(),
               Text('Vehicles',style: StyleText.textStyle17,),
               const ItemListBuilder(),
+              SizedBox(height: heightMedia * 0.02,),
+              Text('Home & Flat',style: StyleText.textStyle17,),
+              const HomeAndFlatsList(),
             ],
           ),
         ),

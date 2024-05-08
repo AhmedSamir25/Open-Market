@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:open_market/core/constant/assets_manager.dart';
-import 'package:open_market/core/theme/text_style.dart';
+import 'package:open_market/features/home/view/widgets/info_home.dart';
 import 'package:open_market/features/home/view/widgets/name_and_place.dart';
 import 'package:open_market/features/home/view/widgets/price_and_like.dart';
 
-class ItemListBuilder extends StatelessWidget {
-  const ItemListBuilder({super.key});
+class HomeAndFlatsList extends StatelessWidget {
+  const HomeAndFlatsList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double heightMedia = MediaQuery.of(context).size.height;
+     double heightMedia = MediaQuery.of(context).size.height;
     double widthMedia = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: heightMedia * 0.28,
+      height: heightMedia * 0.34,
       width: double.infinity,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -25,7 +25,7 @@ class ItemListBuilder extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset(
-                  AssetsManager.carIcon,
+                  AssetsManager.homeIcon,
                   width: widthMedia * 0.3,
                   height: heightMedia * 0.15,
                 ),
@@ -34,8 +34,11 @@ class ItemListBuilder extends StatelessWidget {
                   height: 10,
                 ),
                 PriceAndLike(priceText: 210000, onPressed: () {}),
-                const Padding(
-                  padding: EdgeInsets.only(left: 8.0),
+                 const InformationHome(bedRoomCount: 4,
+                 bathRoomCount: 2,
+                  areaCount: 147),
+                 const Padding(
+                  padding:  EdgeInsets.only(left: 8.0),
                   child: NameAndPlace(),
                 ),
               ],
