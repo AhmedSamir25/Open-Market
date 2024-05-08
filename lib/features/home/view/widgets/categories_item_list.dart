@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_market/core/theme/text_style.dart';
 import 'package:open_market/features/home/data/local_data/categories_data.dart';
 
 class CategoriesItemList extends StatelessWidget {
@@ -10,7 +11,7 @@ class CategoriesItemList extends StatelessWidget {
     double widthMedia = MediaQuery.of(context).size.width;
     return SizedBox(
       width: double.infinity,
-      height: heightMedia *0.2,
+      height: heightMedia *0.13,
       child: ListView.builder(
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.only(right: 10.0),
@@ -30,7 +31,7 @@ class CategoriesItemList extends StatelessWidget {
                   maxWidth: widthMedia * 0.18
                 ),
                 child: Text(CategoriesItemData.categoriesList[index].name,
-                style: TextStyle(fontSize: 13),))
+                style: StyleText.textStyle13))
             ],
           ),
         ),
